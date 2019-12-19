@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+        
+    <style>
+
+    html {
+    	font-family: sans-serif;
+    
+    }
+
+    body {
+        font-size: 18px;
+    	color: white;
+    	background-color: #001a19;
+    	height: 80%;
+    
+    }
+
+    h1 {
+        color: orange;
+    }
+
+    h2 {
+        color: #e0ebeb;
+        font-size: 18px; 
+    }
+
+    h3 {
+
+        font-weight: 900;
+        font-size: 32px;
+        color: orange;
+        text-decoration : underline;
+    }
+
+    h4 {
+        font-size: 24px;
+        text-align: center;
+        margin-top: -.02em;
+        text-decoration : underline;
+
+    }
+
+    h5 {
+        font-size: 28;
+        margin-top: -.05em;
+        margin-left: 20px;
+    }
+
+    link {
+        font-size: 18 px;
+        color: yellowgreen;
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menuDrinks {
+        float: left;
+    	color: #e0ebeb;
+    	width: 50%;
+    }
+
+    .menuBreakfast {
+    	float: right;
+    	color: #e0ebeb;
+        width: 50%;
+    }
+
+    .menuLunch {
+        float: left;
+    	color: #e0ebeb;
+    	width: 50%;
+    }
+
+    .menuDinner {    
+    	float: right;
+    	color: #e0ebeb;
+    	width: 50%;  
+    }
+
+    .menuSides {
+        float: left;
+    	color: #e0ebeb;
+    	width: 50%;
+    }
+
+    .menuAddons {
+        float: right;
+    	color: #e0ebeb;
+    	width: 50%;
+    }
+
+    .bottom {
+    	height: 10px;
+    }
+
+    #drinksText {
+    	margin: auto;
+        width: 50%;
+    	border: 3px solid orange;
+    	background-color: black;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #breakfastText {
+    	margin: auto;
+        width: 50%;
+        border: 3px solid orange;
+    	background-color: black;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #lunchText {
+    	margin: auto;
+        width: 50%;
+        border: 3px solid orange;
+    	background-color: black;
+        padding: 10px;
+        text-align: left;
+    }
+
+    #dinnerText {
+    	margin: auto;
+        width: 50%;
+        padding: 10px;
+    	border: 3px solid orange;
+        background-color: black;
+        text-align: left;
+    }
+
+    #addonsText {
+    	margin: auto;
+        width: 50%;
+        border: 3px solid orange;
+    	background-color: black;
+        padding: 10px;
+        text-align: left;
+    }   
+
+    #sidesText {
+    	margin: auto;
+        width: 50%;
+        border: 3px solid orange;
+    	background-color: black;
+        padding: 10px;
+        text-align: left;
+    }
+  </style>
+
+  <title>Bottega Diner</title>
+    <div class="link">
+        <a href="https://github.com/Code-JD/BottegaDinerJDH/blob/master/index.html">Source Code</a>
+    </div>
+    <center><h1><u>- Welcome to Bottega Diner -</u></h1></center>
+    <center><h2>Please choose a <u>Drink</u> and either a <u>Breakfast</u>, <u>Lunch</u>, or <u>Dinner Item</u> and a <u>Side</u>. Feel free to customize your order with one of our <u>Add-ons</u>.</h2></center>
+    <center>
+        <div class="button">
+            <input id="btnOrder" type="button" onclick="getReceipt(); removeButton();" " value="Place Order">
+        </div>
+        <div class="button">
+            <input id="reload" type="button" onclick="location.reload();" " value="Reorder">
+        </div>
+    <center>
+</head>
+
+<body>
+    <div id="menuBG">
+        <form id="frmMenu">
+            
+            
+            <center>	
+                <div class="cart">
+                    <div id="showText"></div>
+                    <div id="totalPrice"></div>
+                </div>
+            </center>
+            <div class="flex-container">
+                <div class="menuDrinks">
+                    <center><h3>Drinks:</h3></center>
+                        <div id= "drinksText";>
+                            <h4>Please choose a Drink</h4>	
+                            <input class="drinks" type="radio" name="Drinks" value="Water" onclick="alert('Nothing beats a glass of water when you are thirsty!')">Water<br>
+                            <h5>-Filtered Water with ice, free of charge.</h5>
+                            <input class="drinks" type="radio" name="Drinks" value="House Made Cola" onclick="alert('Made with out all that artifical junk.')"> House Made Cola $3<br>
+                            <h5>-Our own in-house made Cola.</h5>
+                            <input class="drinks" type="radio" name="Drinks" value="Fresh Brewed Coffee" onclick="alert('I will bring that out with some cream and sugar')">Fresh Brewed Coffee $2<br>
+                            <h5>-Locally Roasted Fair Trade coffee from Bottega Roasters, ground and brewed fresh.</h5>
+                            <input class="drinks" type="radio" name="Drinks" value="Bottega Pale Ale" onclick="alert('This beer goes well with everything!')">Bottega Pale Ale $7<br>
+                            <h5>-Locally Brewed from Bottega Ale Works, dry hopped with Mosaic and Citra.</h5>
+                            <input class="drinks" type="radio" name="Drinks" value="Bottega Wood Aged Lager" onclick="alert('My favorite on a hot day.')">Bottega Wood Aged Lager $7<br>
+                            <h5>-Bottega Ale Works Lager, Foeder Aged and largered for 2 months.</h5>
+                            <input class="drinks" type="radio" name="Drinks" value="Bottega Barrel Aged Stout" onclick="alert('My favorite beer to have when my shift here is done.')">Bottega Barrel Aged Stout $8<br>
+                            <h5>-Bottega Ale Works Imperial Stout aged in Bourbon barrels.</h5>
+                        </div>
+                </div>
+                        
+                <div class="menuBreakfast">
+                    <center><h3>Breakfast:</h3></center>
+                        <div id= "breakfastText";>
+                            <h4>Please choose a Breakfast Item</h4>
+                            <input class="breakfast" type="radio" name="Breakfast" value="Pancakes" onclick="alert('Today the Chef put lemon zest and vanilla beans in the batter, yum!')"> Pancakes $7<br>
+                            <h5>-Short stack of Buttermilk Pancakes.</h5>
+                            <input class="breakfast" type="radio" name="Breakfast" value="Belgian Waffles" onclick="alert('You will never have a soggy waffle here!')"> Belgian Waffles $7<br>
+                            <h5>- Two crispy and fluffy Belgian Waffles served with real maple syrup.</h5>
+                            <input class="breakfast" type="radio" name="Breakfast" value="Eggs and Bacon" onclick="alert('Cannot go wrong with an American Classic!')"> Eggs and Bacon $6<br> 
+                            <h5>- Two Eggs cooked to order and two stips of bacon.</h5>
+                            <input class="breakfast" type="radio" name="Breakfast" value="Country Scramble" onclick="alert('You have to have this with our House Made Salsa')"> Country Scramble $8<br>
+                            <h5>- Two eggs scrambled with peppers, ham, sausage, and cheddar cheese.</h5>
+                            <input class="breakfast" type="radio" name="Breakfast" value="Biscuits and Gravy" onclick="alert('My personal favorite when I am hungover in the morning')"> Biscuits and Gravy $9<br>
+                            <h5>- House made biscuits smothered with sausage gravy.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="menuLunch">
+                    <center><h3>Lunch:</h3></center>
+                        <div id= "lunchText";>
+                            <h4>Please choose a Lunch Item</h4>
+                            <input class="lunch" type="radio" name="Lunch" value="BLT" onclick="alert('Classic lunch, you are going to have fries with that right?')"> BLT $7<br>
+                            <h5>- Bacon, lettuce, and tomato sandwich.</h5>
+                            <input class="lunch" type="radio" name="Lunch" value="Cheese Burger" onclick="alert('I always add bacon to our burgers.')"> Cheese Burger $9<br>
+                            <h5>- Angus beef patty cooked to order, served with lettuce, tomato, mayo, and cheddar cheese.</h5>
+                            <input class="lunch" type="radio" name="Lunch" value="Grilled Chicken Sandwich" onclick="alert('A satisfying option that will not weigh you down.')"> Grilled Chicken Sandwich $8<br>
+                            <h5>- Grilled chicken breast served on a whole wheat bun with lettuce, tomato, and Gouda cheese.</h5>
+                            <input class="lunch" type="radio" name="Lunch" value="Roast Beef Sandwich" onclick="alert('You have it with Avacado!')"> Roast Beef Sandwich $8<br>
+                            <h5>- Roast beef sliced thin and served on a french baguette with Muenster cheese.</h5>
+                        </div>
+                </div>
+            
+                <div class="menuDinner">
+                    <center><h3>Dinner:</h3></center>
+                            <div id= "dinnerText";>
+                            <h4>Please choose a Dinner Item</h4>
+                            <input class="dinner" type="radio" name="Dinner" value="Shrimp Linguine" onclick="alert('Momma Mia, our Linguine is delicous.')"> Shrimp Linguine $9<br>
+                            <h5>- Sauteed shrimp served on a bed of linguine and white wine cream sauce. Comes with a side salad. $8</h5>
+                            <input class="dinner" type="radio" name="Dinner" value="Pork Chops" onclick="alert('Oooooo, the mushroom gravy is the best.')"> Pork Chops <br>
+                            <h5>- Bone-in pork chops served with a mushroom gravy. Comes with a side of roasted potatoes. $9</h5>
+                            <input class="dinner" type="radio" name="Dinner" value="Meat Loaf" onclick="alert('Better than Mom ever made, well my Mom.')"> Meat Loaf $9<br>
+                            <h5>- Grandma's Meat Loaf served with mashed potatoes and gravy.</h5>
+                            <input class="dinner" type="radio" name="Dinner" value="Tomahawk Ribeye" onclick="alert('I get this on Payday')"> Tomahawk Ribeye $16<br>
+                            <h5>- 18 oz. Tomahawk Ribeye, grilled to perfection. Served with a side of roasted mix veggies.</h5>
+                            <input class="dinner" type="radio" name="Dinner" value="Surf and Turf" onclick="alert('Always hits the spot!')"> Surf and Turf $19<br>
+                            <h5>- Seared scallops and a Porterhouse served with a baked potato.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="menuSides">
+                    <center><h3>Sides:</h3></center>
+                        <div id= "sidesText";>
+                            <h4>Please choose a Dessert Item</h4>	
+                            <input class="sides" type="radio" name="Sides" value="French Fries" onclick="alert('I will bring out our House Made ketchup.')"> French Fries $4<br>
+                            <h5>- Golden and delicous French Fries.</h5>
+                            <input class="sides" type="radio" name="Sides" value="Side Salad" onclick="alert('I could eat my shoe if it was covered in our Dressing.')"> Side Salad $4<br>
+                            <h5>- Garden Salad served with our House Made Dressing.</h5>
+                            <input class="sides" type="radio" name="Sides" value="Country Potatoes" onclick="alert('Always good for any time of the day.')"> Country Potatoes $4<br>
+                            <h5>- Oven roasted red potatoes with onions and peppers.</h5>
+                            <input class="sides" type="radio" name="Sides" value="Mashed Potatoes" onclick="alert('My favorite!')"> Mashed Potatoes $5<br>
+                            <h5>- Mashed potatoes with country gravy.</h5>
+                            <input class="sides" type="radio" name="Sides" value="Grilled Veggies" onclick="alert('We all have to eat our veggies!')"> Grilled Veggies $5<br>
+                            <h5>-Mixed seasoned veggies, grilled to perfection.</h5>
+                        </div>
+                </div>
+
+                <div class="menuAddons">
+                    <center><h3>Add-Ons:</h3></center>
+                        <div id= "addonsText";>
+                            <h4>Please choose an Add-on</h4>	
+                            <input class="addons" type="radio" name="Addons" id="Bacon" value="Bacon" onclick="alert('Bacon always makes me thirsty... thirsty for more bacon!')"> Bacon $2<br>
+                            <h5>- Two strips of hickory smoked bacon</h5>
+                            <input class="addons" type="radio" name="Addons" value=" Grilled Onions" onclick="alert('We all know they go well with burgers, but you have to try them with our Biscuits and Gravy.')"> Grilled Onions $1<br>
+                            <h5>- Vidalia onions caramelized to perfection.</h5>
+                            <input class="addons" type="radio" name="Addons" value="Avacado" onclick="alert('The perfect addition to any meal... well maybe not Pancakes')"> Avacado $2<br>
+                            <h5>- Half a ripe avacado.</h5>
+                            <input class="addons" type="radio" name="Addons" value="Grilled Peppers" onclick="alert('I always add peppers to my to my with my Pork Chops')"> Grilled Peppers $1<br> 
+                            <h5>- Grilled red and green peppers.</h5>
+                            <input class="addons" type="radio" name="Addons" value="Sauteed Mushrooms" onclick="alert('They go so well with our pasta.')"> Sauteed Mushrooms $1<br>
+                            <h5>- Sliced cremini mushrooms, sauteed with butter.</h5>
+                            <input class="addons" type="radio" name="Addons" value="Fried Egg" onclick="alert('Breakfast, Lunch, or Dinner. Eggs are good anytime of day.')"> Fried Egg $2<br>
+                            <h5>-An egg fried to order.</h5>
+                            <input class="addons" type="radio" name="Addons" value="Sausage Links" onclick="alert('For when you already ate Bacon today, lol.')"> Sausage Links $2<br>
+                            <h5>- Two all pork sausage links.</h5>
+                            <input class="addons" type="radio" name="Addons" id= "salsa" value="House Made Salsa" onclick="alert('Other than the Pancakes and Waffles, our salsa is great on anything!')"> House Made Salsa $1<br>
+                            <h5>- Our House Made Salsa, not too spicy, but full of flavor.</h5>
+                        </div>
+                </div>
+            </div>
+
+            <div class=" bottom">	
+                <p>
+                </p>
+            </div>
+        
+        
+        </form>
+    </div>
+<script>
+    var runningTotal = 0;
+    var text1 = "<h3>You Ordered:</h3>";
+
+
+    function getReceipt() {
+   
+    	var dinnerTotal = 0;
+    	var dinnerArray = document.getElementsByClassName("dinner");
+    	for (var i = 0; i < dinnerArray.length; i++) {
+
+        
+    		if (dinnerArray[i].checked) {
+            
+    			var selectedDinner = dinnerArray[i].value;
+    			text1 = text1+selectedDinner + "<br>";
+            
+    		}
+    	}
+    	if (selectedDinner === "Shrimp Linguine") {
+    		dinnerTotal = 9;
+    	} else if (selectedDinner === "Pork Chops") {
+    		dinnerTotal = 8;
+    	} else if (selectedDinner === "Meat Loaf") {
+    		dinnerTotal = 9;
+        } else if (selectedDinner === "Tomahawk Ribeye") {
+    		dinnerTotal = 16;
+        } else if (selectedDinner === "Surf and Turf") {
+    		dinnerTotal = 19;
+    	}
+    	runningTotal = dinnerTotal;
+    	getBreakfast(runningTotal,text1); 
+    	getLunch(runningTotal, text1);
+    	getSides(runningTotal, text1);
+    	getDrinks(runningTotal, text1);
+    	getAddons(runningTotal, text1);
+    
+    
+    	document.getElementById("showText").innerHTML=text1;
+    	document.getElementById("totalPrice").innerHTML = "</h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
+    };
+
+
+    function getBreakfast() {
+    	var breakfastTotal = 0;
+    	var breakfastArray = document.getElementsByClassName("breakfast");
+    	for (var j = 0; j < breakfastArray.length; j++) {
+        
+    		if (breakfastArray[j].checked) {
+    			var selectedBreakfast = breakfastArray[j].value;
+    			text1 = text1+selectedBreakfast + "<br>";
+    				}
+    			}
+    	if (selectedBreakfast === "Pancakes") {
+    		breakfastTotal = 7;
+    	} else if (selectedBreakfast === "Belgian Waffles") {
+    		breakfastTotal = 7;
+    	} else if (selectedBreakfast === "Eggs and Bacon") {
+    		breakfastTotal = 6;
+    	} else if (selectedBreakfast === "Country Scramble") {
+    		breakfastTotal = 8;
+    	} else if (selectedBreakfast === "Biscuits and Gravy") {
+    		breakfastTotal = 9;
+    	}
+    		runningTotal = (runningTotal + breakfastTotal);
+    		console.log(breakfastTotal);
+    };
+
+
+    function getLunch() {
+    	var lunchTotal = 0;
+    	var lunchArray = document.getElementsByClassName("lunch");
+    	for (var k = 0; k < lunchArray.length; k++) {
+        
+    		if (lunchArray[k].checked) {
+    			var selectedLunch = lunchArray[k].value;
+    			text1 = text1+selectedLunch + "<br>";
+    				}
+    			}
+    	if (selectedLunch === "BLT") {
+    		lunchTotal = 7;
+    	} else if (selectedLunch === "Cheese Burger") {
+    		lunchTotal = 9;
+        } else if (selectedLunch === "Grilled Chicken Sandwich") {
+    		lunchTotal = 8;
+        } else if (selectedLunch === "Roast Beef Sandwich") {
+    		lunchTotal = 8;
+    	}
+            runningTotal = (runningTotal + lunchTotal);
+    		console.log(runningTotal);
+    };
+
+
+    function getSides() {
+    	var sidesTotal = 0;
+    	var sidesArray = document.getElementsByClassName("sides");
+    	for (var l = 0; l < sidesArray.length; l++) {
+        
+    		if (sidesArray[l].checked) {
+    			var selectedSides = sidesArray[l].value;
+    			text1 = text1+selectedSides + "<br>";
+    				}
+    			}
+    	if (selectedSides === "French Fries") {
+    		sidesTotal = 4;
+    	} else if (selectedSides === "Side Salad") {
+    		sidesTotal = 4;
+    	} else if (selectedSides === "Country Potatoes") {
+    		sidesTotal = 4;
+    	} else if (selectedSides === "Mashed Potatoes") {
+    		sidesTotal = 5;
+    	} else if (selectedSides === "Grilled Veggies") {
+    		sidesTotal = 5;
+    	}
+    		runningTotal = (runningTotal + sidesTotal);
+    		console.log(sidesTotal);
+    };
+
+
+    function getDrinks() {
+    	var drinksTotal = 0;
+    	var drinksArray = document.getElementsByClassName("drinks");
+    	for (var m = 0; m < drinksArray.length; m++) {
+        
+    		if (drinksArray[m].checked) {
+    			var selectedDrinks = drinksArray[m].value;
+    			text1 = text1+selectedDrinks + "<br>";
+    				}
+    			}
+    	if (selectedDrinks === "Water") {
+    		drinksTotal = 0;
+    	} else if (selectedDrinks === "House Made Cola") {
+    		drinksTotal = 3;
+    	} else if (selectedDrinks === "Fresh Brewed Coffee") {
+    		drinksTotal = 2;
+    	} else if (selectedDrinks === "Bottega Pale Ale") {
+    		drinksTotal = 7;
+        } else if (selectedDrinks === "Bottega Wood Aged Lager") {
+            drinksTotal = 7;
+        } else if (selectedDrinks === "Bottega Barrel Aged Stout") {
+    		drinksTotal = 8;
+        } 
+    		runningTotal = (runningTotal + drinksTotal);
+    		console.log(drinksTotal);
+    };
+
+
+    function getAddons() {
+    	var addonsTotal = 0;
+    	var addonsArray = document.getElementsByClassName("addons");
+    	for (var m = 0; m < addonsArray.length; m++) {
+        
+    		if (addonsArray[m].checked) {
+    			var selectedAddons = addonsArray[m].value;
+    			text1 = text1+selectedAddons + "<br>";
+    				}
+    			}
+    	if (selectedAddons === "Bacon") {
+    		addonsTotal = 2;
+    	} else if (selectedAddons === "Grilled Onions") {
+    		drinksTotal = 1;
+    	} else if (selectedAddons === "Avacado") {
+    		drinksTotal = 2;
+    	} else if (selectedAddons === "Grilled Peppers") {
+    		drinksTotal = 1;
+        } else if (selectedAddons === "Sauteed Mushrooms") {
+            addonsTotal = 1;
+        } else if (selectedAddons === "Fried Egg") {
+    		addonsTotal = 2;
+        } else if (selectedAddons === "Sausage Links") {
+    		addonsTotal = 2;
+        } else if (selectedAddons === "House Made Salsa") {
+    		addonsTotal = 1;
+        } 
+    		runningTotal = (runningTotal + addonsTotal);
+    		console.log(addonsTotal);
+    };
+
+
+    // function taxMan() {
+    //     const x = 0.0725
+
+    // }
+
+</script>  
+</body>
+</html>
